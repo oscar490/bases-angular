@@ -28,14 +28,6 @@ export class DragonballPageComponent {
     this.characters.update(
       list => [...list, newCharacter]
     )
-    this.resetFields();
   }
-
-  resetFields() {
-    this.name.set('');
-    this.power.set(0);
-  }
-
-
 
 }
