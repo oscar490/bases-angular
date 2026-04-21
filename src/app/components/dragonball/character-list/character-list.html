@@ -1,20 +1,24 @@
 
 <h3>{{ listName() }}</h3>
 <ul>
-  @for (character of characters(); track character.id; let idx = $index) {
-    @if (character.power > 500) {
-    <li>
-      <span>{{ idx + 1 }} - {{ character.name }}</span>
-      <strong
-        [class.text-danger]="character.power > 9000"
-        [class.text-info]="character.power < 9000"
-      > ({{ character.power }})</strong>
-
-    </li>
-    } @else {
+  @if (characters().length != 0) {
+    @for (character of characters(); track character.id; let idx = $index) {
+      @if (character.power > 500) {
       <li>
-        <strong>Aqui no hay nadie</strong>
+        <span>{{ idx + 1 }} - {{ character.name }}</span>
+        <strong
+          [class.text-danger]="character.power > 9000"
+          [class.text-info]="character.power < 9000"
+        > ({{ character.power }})</strong>
+
       </li>
+      } @else {
+        <li>
+          <strong>Aqui no hay nadie</strong>
+        </li>
+      }
     }
+  } @else {
+    <li>¡No tenemos guerreros preparados!</li>
   }
 </ul>
